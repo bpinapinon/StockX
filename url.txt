@@ -1,1 +1,0 @@
-url_list = ["https://stockx.com/adidas-yeezy-boost-350-v2-cream-white", "https://stockx.com/adidas-yeezy-boost-350-v2-core-black-white"]

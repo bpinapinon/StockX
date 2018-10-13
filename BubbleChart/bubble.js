@@ -8,8 +8,8 @@ var trace = {
       size: adidas.map(row => row.Number_of_Sales),
       color: adidas.map(row => row.Color),
       sizemode:'area',
-      sizeref: 2.*max(size)/(40.**2),
-      sizemin: 4
+      //sizeref: 2.*max(size)/(40.**2),
+      //sizemin: 4
       //colorscale: "Earth"
     },
 };

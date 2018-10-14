@@ -9,6 +9,10 @@ from pprint import pprint
 import glob
 import numpy as np
 import os
+import subprocess
+
+# Start MongoDB Server by making OS call "mongod"
+mongod = subprocess.Popen('mongod' , shell = True)
 
 # Establish Mongo DB Client Connection
 Client = MongoClient()
@@ -23,7 +27,7 @@ Client.drop_database("StockX_DB")
 # Show existing DBs
 print(f'\nExisting Databases Run 2: Post DB Drop\n{"-"*40}\n{Client.list_database_names()}')
 
-# Create StockX_DB 
+# Create StockX_DB if it exists
 DatabaseName = 'StockX_DB'
 MongoDB = Client[DatabaseName]
 
@@ -95,5 +99,5 @@ print(f'\nDatabases Post-Job:\n{"-"*40}\n{Client.list_database_names()}')
 # Print Collections to verify creation of ours
 print(f'\nCollections Post-Job:\n{"-"*40}\n{MongoDB.collection_names()}')
 
-
-
+# Close connection to MongoDB
+mongod.terminate()

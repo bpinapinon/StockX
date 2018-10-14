@@ -88,11 +88,10 @@
 <script src="http://evanplaice.github.io/jquery-csv/src/jquery.csv.min.js"></script>
 <script>
 
-    var DATA_COUNT = 50;
     var MAX_LABEL_LENGTH = 30;
     var i = 1;
     var data = [];
-    d3.csv("test2.csv", type, function(error, _data) {
+    d3.csv("Sneaker_Bar.csv", type, function(error, _data) {
         console.log(">>", _data);
         data = _data;
        // dataLoaded(data);

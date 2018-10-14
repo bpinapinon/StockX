@@ -23,7 +23,7 @@ Client.drop_database("StockX_DB")
 # Show existing DBs
 print(f'\nExisting Databases Run 2: Post DB Drop\n{"-"*40}\n{Client.list_database_names()}')
 
-# Create StockX_DB if it exists
+# Create StockX_DB 
 DatabaseName = 'StockX_DB'
 MongoDB = Client[DatabaseName]
 

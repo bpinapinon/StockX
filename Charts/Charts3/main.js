@@ -1,5 +1,6 @@
-//Read CSV file
-d3.csv('Sneaker_Bar.csv')
+
+// Read CSV via D3
+d3.csv('test.csv')
     .then(function(data) {
         // START THEN
 

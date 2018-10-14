@@ -10,7 +10,7 @@ app = Flask(__name__)
 conn = 'mongodb://localhost:27017'
 client = MongoClient("mongodb://localhost:27017")
 db = client.StockX_DB
-# bubble = db.sneaker_bubble
+bubble = db.sneaker_bubble
 bar = db.Sneaker_bar
 
 
@@ -22,9 +22,16 @@ def index():
 @app.route("/bubble")
 def bubble_chart():
     """Go to bubble chart page"""
-    inventory = list(db.sneaker_bubble.find())
+    inventory = list(bubble.find())
     print(inventory)
     return render_template("bubble.html", inventory=inventory)
+
+@app.route("/bar")
+def bubble_chart():
+    """Go to bubble chart page"""
+    inventory = list(bar.find())
+    print(inventory)
+    return render_template("bar.html", inventory=inventory)
 
 
 

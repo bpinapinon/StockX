@@ -1,7 +1,3 @@
-# Verify MongoDB instance is running on the default host and port:
-# Initiate in gitbash with command: mongod
-
-
 # Import Dependencies
 import pymongo
 from pymongo import MongoClient 

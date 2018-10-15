@@ -27,8 +27,8 @@ def bubble_chart():
     return render_template("bubble.html", inventory=inventory)
 
 @app.route("/bar")
-def bubble_chart():
-    """Go to bubble chart page"""
+def bar_chart():
+    """Go to bar chart page"""
     inventory = list(bar.find())
     print(inventory)
     return render_template("bar.html", inventory=inventory)

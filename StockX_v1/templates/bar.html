@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sneaker Bar Chart</title>
+    <!--<link rel="stylesheet" href="reset.css">-->
+    <!-- <link rel="stylesheet" type='text/css' href="stylesheet.css"> -->
+    <link href="{{ url_for('static', filename='css/stylesheet.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+
+</head>
+
+
+<body>
+
+    <h1>Sneaker Dynamic Bar Chart</h1>
+
+    <p class="axes_dropdown">X-Axis Variable
+        <select name="x_axis" id="x_axis"></select>
+    </p>
+
+    <p class="axes_dropdown">Y-Axis Variable
+        <select name="y_axis" id="y_axis"></select>
+    </p>
+
+    <container class="g3" style="height: 700px; width: 1200px;"></container>
+
+    <div id="infobox"> Select .csv file: </div>
+
+    <div id="inputs" class="clearfix">
+        <input type="file" id="files" name="files[]" multiple />
+        </br>
+        <button onclick="printTable()">Load Chart with MongoDB Data</button>
+    </div>
+
+    <hr />
+
+    <output id="list"></output>
+
+    <hr />
+
+    <table id="contents" style="width:100%; height:400px;" border></table>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <!-- <script src="jquery.js"></script> -->
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="http://evanplaice.github.io/jquery-csv/src/jquery.csv.min.js"></script>
+    <script>
+
+        var MAX_LABEL_LENGTH = 30;
+        var i = 1;
+        var data = [];
+        d3.csv("test.csv", type, function (error, _data) {
+            console.log(">>", _data);
+            data = _data;
+            // dataLoaded(data);
+        });
+        function type(d) {
+            d.Label = d.Model;
+            d.ItemNumber = "" + i;
+            i++;
+            return d;
+        }
+        function getRandomArbitrary(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+        function dataLoaded(data) {
+            var x_Axis_Labels = Array();
+            var y_Axis_Labels = Array();
+
+            if (data.length > 0) {
+                var firstNode = data[0];
+                for (var k in firstNode) {
+                    if (firstNode.hasOwnProperty(k)) {
+                        x_Axis_Labels.push(k);
+                        if (!isNaN(firstNode[k])) {
+                            y_Axis_Labels.push(k);
+                        }
+                        console.log("<" + k + " = " + firstNode[k] + "> ");
+                    }
+                }
+            }
+            $.each(x_Axis_Labels, function (key, value) {
+                $('#x_axis')
+                    .append($("<option></option>")
+                        .attr("value", value)
+                        .text(value));
+            });
+            var isFirst = true;
+            $.each(y_Axis_Labels, function (key, value) {
+                $('#y_axis')
+                    .append($(isFirst ? "<option selected></option>" : "<option> </option>")
+                        .attr("value", value)
+                        .text(value));
+            });
+            console.log("X Axis: ", x_Axis_Labels);
+            console.log("Y Axis: ", y_Axis_Labels);
+            var margin = { top: 20, right: 10, bottom: 20, left: 40 };
+            var marginOverview = { top: 30, right: 10, bottom: 20, left: 40 };
+            var selectorHeight = 40;
+            var width = 1200 - margin.left - margin.right;
+            var height = 700 - margin.top - margin.bottom - selectorHeight;
+            var heightOverview = 80 - marginOverview.top - marginOverview.bottom;
+            $("#x_axis").change(function () {
+                createChart();
+            });
+            $("#y_axis").change(function () {
+                createChart();
+            });
+            function createChart() {
+                d3.selectAll("svg").remove();
+
+                var selectedItem = document.getElementById('x_axis').value;
+                var selectedYAxis = document.getElementById('y_axis').value;
+                var maxLength = d3.max(data.map(
+                    function (d) {
+                        return d[selectedItem].length
+                    }
+                )
+                )
+                var barWidth = maxLength * 18;
+                var numBars = Math.round(width / barWidth);
+                var isScrollDisplayed = barWidth * data.length > width;
+
+
+                console.log(isScrollDisplayed)
+
+                var xscale = d3.scale.ordinal()
+                    .domain(data.slice(0, numBars).map(function (d) {
+                        return d[selectedItem];
+                    }))
+                    .rangeBands([0, width], .2);
+
+                var yscale = d3.scale.linear()
+                    .domain([0, d3.max(data, function (d) {
+                        return +d[selectedYAxis];
+                    })])
+                    .range([height, 0]);
+
+                var xAxis = d3.svg.axis().scale(xscale).orient("bottom");
+                var yAxis = d3.svg.axis().scale(yscale).orient("left");
+
+                var svg = d3.select("container")
+                    .append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom + selectorHeight);
+
+                var diagram = svg.append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+                diagram.append("g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0, " + height + ")")
+                    .text("XAxis")
+                    .call(xAxis);
+
+                diagram.append("g")
+                    .attr("class", "y axis")
+
+                    .call(yAxis);
+
+                var div = d3.select("body")
+                    .append("div")
+                    .attr("class", "tooltip")
+                    .style("opacity", 0);
+
+                var bars = diagram.append("g").attr("class", "g3");
+
+                bars.selectAll("rect")
+                    .data(data.slice(0, numBars), function (d) {
+                        return d[selectedItem];
+                    })
+                    .enter().append("rect")
+                    .attr("class", "bar")
+                    .attr("x", function (d) {
+                        return xscale(d[selectedItem]);
+                    })
+                    .attr("y", function (d) {
+                        return yscale(+d[selectedYAxis]);
+                    })
+                    .attr("width", xscale.rangeBand())
+                    .attr("height", function (d) {
+                        return height - yscale(+d[selectedYAxis]);
+                    })
+                    .on("mouseenter", showTooltip)
+                    .on("touchstart", showTooltip)
+                    .on("mouseleave", hideTooltip)
+                    .on("touchend", hideTooltip)
+                    .on("mousemove", mousemove);
+
+
+
+                function mousemove(data) {
+                    div
+
+                        .style("left", (d3.event.pageX - 34) + "px")
+                        .style("top", (d3.event.pageY - 12) + "px");
+                }
+                function showTooltip(data) {
+                    // transparency
+
+                    d3.select(this).transition()
+                        .duration(200)
+                        .style("opacity", .7);
+
+                    // end transparency
+
+                    div.style("opacity", .9);
+                    var _html = `<div class="tooltip-name">
+                    <p><strong>${selectedItem} = ${data[selectedItem]}</div> ${selectedYAxis} =  ${data[selectedYAxis]} </strong></p>
+
+                    `;
+                    div.html(_html)
+                        .style("left", (d3.event.pageX + 25) + "px")
+                        .style("top", (d3.event.pageY - 25) + "px");
+                    _html = '';
+                    for (var k in data) {
+                        if (firstNode.hasOwnProperty(k)) {
+                            _html += `<p> ${k} => ${data[k]} </p>`;
+                        }
+                    }
+                    $('#infobox').html(_html);
+
+
+                }
+
+                function hideTooltip(data) {
+                    // transparency
+
+                    d3.select(this).transition()
+                        .duration(200)
+                        .style("opacity", 1);
+
+
+                    div.style("opacity", 0);
+                }
+                if (isScrollDisplayed) {
+                    var xOverview = d3.scale.ordinal()
+                        .domain(data.map(function (d) { return d[selectedItem]; }))
+                        .rangeBands([0, width], .2);
+                    yOverview = d3.scale.linear().range([heightOverview, 0]);
+                    yOverview.domain(yscale.domain());
+
+                    var subBars = diagram.selectAll('.subBar')
+                        .data(data)
+
+                    subBars.enter().append("rect")
+                        .classed('subBar', true)
+                        .attr({
+                            height: function (d) {
+                                return heightOverview - yOverview(+d[selectedYAxis]);
+                            },
+                            width: function (d) {
+                                return xOverview.rangeBand()
+                            },
+                            x: function (d) {
+
+                                return xOverview(d[selectedItem]);
+                            },
+                            y: function (d) {
+                                return height + heightOverview + yOverview(+d[selectedYAxis])
+                            }
+                        })
+
+                    var displayed = d3.scale.quantize()
+                        .domain([0, width])
+                        .range(d3.range(data.length));
+
+                    diagram.append("rect")
+                        .attr("transform", "translate(0, " + (height + margin.bottom) + ")")
+                        .attr("class", "mover")
+                        .attr("x", 0)
+                        .attr("y", 0)
+                        .attr("height", selectorHeight)
+                        .attr("width", Math.round(parseFloat(numBars * width) / data.length))
+                        .attr("pointer-events", "all")
+                        .attr("cursor", "ew-resize")
+                        .call(d3.behavior.drag().on("drag", display));
+                }
+                function display() {
+                    var x = parseInt(d3.select(this).attr("x")),
+                        nx = x + d3.event.dx,
+                        w = parseInt(d3.select(this).attr("width")),
+                        f, nf, new_data, rects;
+
+                    if (nx < 0 || nx + w > width) return;
+
+                    d3.select(this).attr("x", nx);
+
+                    f = displayed(x);
+                    nf = displayed(nx);
+
+                    if (f === nf) return;
+
+                    new_data = data.slice(nf, nf + numBars);
+
+                    xscale.domain(new_data.map(
+                        function (d) {
+                            return d[selectedItem];
+                        }));
+                    diagram.select(".x.axis").call(xAxis);
+
+                    rects = bars.selectAll("rect")
+                        .data(new_data, function (d) {
+                            return d[selectedItem];
+                        });
+
+                    rects.attr("x", function (d) {
+                        return xscale(d[selectedItem]);
+                    });
+
+                    // 	  rects.attr("transform", function(d) { return "translate(" + xscale(d.label) + ",0)"; })
+
+                    rects.enter().append("rect")
+                        .attr("class", "bar")
+                        .attr("x", function (d) { return xscale(d[selectedItem]); })
+                        .attr("y", function (d) { return yscale(+d[selectedYAxis]); })
+                        .attr("width", xscale.rangeBand())
+                        .attr("height", function (d) { return height - yscale(+d[selectedYAxis]); });
+
+                    rects.exit().remove();
+
+
+                    bars.selectAll("rect").on("mouseenter", showTooltip)
+                        .on("touchstart", showTooltip)
+                        .on("mouseleave", hideTooltip)
+                        .on("touchend", hideTooltip)
+                        .on("mousemove", mousemove);
+
+                };
+            }
+            createChart();
+
+
+        } // data loaded ends
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            if (isAPIAvailable()) {
+                $('#files').bind('change', handleFileSelect);
+            }
+        });
+
+        function isAPIAvailable() {
+            // Check for the various File API support.
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+                // Great success! All the File APIs are supported.
+                return true;
+            } else {
+                // source: File API availability - http://caniuse.com/#feat=fileapi
+                // source: <output> availability - http://html5doctor.com/the-output-element/
+                document.writeln('The HTML5 APIs used in this form are only available in the following browsers:<br />');
+                // 6.0 File API & 13.0 <output>
+                document.writeln(' - Google Chrome: 13.0 or later<br />');
+                // 3.6 File API & 6.0 <output>
+                document.writeln(' - Mozilla Firefox: 6.0 or later<br />');
+                // 10.0 File API & 10.0 <output>
+                document.writeln(' - Internet Explorer: Not supported (partial support expected in 10.0)<br />');
+                // ? File API & 5.1 <output>
+                document.writeln(' - Safari: Not supported<br />');
+                // ? File API & 9.2 <output>
+                document.writeln(' - Opera: Not supported');
+                return false;
+            }
+        }
+
+        function handleFileSelect(evt) {
+            var files = evt.target.files; // FileList object
+            var file = files[0];
+
+            // read the file metadata
+            var output = ''
+            output += '<span style="font-weight:bold;">' + escape(file.name) + '</span><br />\n';
+            output += ' - FileType: ' + (file.type || 'n/a') + '<br />\n';
+            output += ' - FileSize: ' + file.size + ' bytes<br />\n';
+            output += ' - LastModified: ' + (file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() : 'n/a') + '<br />\n';
+
+            // read the file contents
+            // printTable(file);
+
+            // post the results
+            $('#list').append(output);
+        }
+
+
+        // Code to get data from Python API and update the chart
+
+        function printTable() {
+            getChartData().then(function (chartData) {
+                dataLoaded(chartData);
+                return chartData
+            }).then(function (data) {
+                var html = '';
+                for (var row in data) {
+                    html += '<tr>\r\n';
+                    for (var item in data[row]) {
+                        html += '<td>' + data[row][item] + '</td>\r\n';
+                    }
+                    html += '</tr>\r\n';
+                }
+                $('#contents').html(html);
+            })
+        }
+
+        function getChartData() {
+            return new Promise(function (resolve, reject) {
+                $.ajax({
+                    url: '/chartdata',
+                    type: 'GET',
+                }).done(function (data) {
+                    if (data.error) {
+                        reject(data.error)
+                    } else {
+                        resolve(data['chartData'])
+                    }
+                });
+            });
+        }
+    </script>

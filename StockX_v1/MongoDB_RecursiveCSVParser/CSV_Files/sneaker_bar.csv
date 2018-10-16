@@ -27,7 +27,7 @@ Nike,Zoom Fly Undercover Gyakusou Blue,Blue Nebula/Sail-Black-University Red ,19
 Nike,Air Force 1 Low Travis Scott Sail,Sail/Sail-Gum Light Brown ,150,7452,302,47
 Nike,Air Presto Off-White White (2018),White/Black-Cone ,160,5093,674,256
 Nike,Air Force 1 Low White (2016),White/White ,90,1186,80,-11
-Nike,Air Max 270 Bowfin Black Desert,Black/Phantom-Desert-Cone ,160,165,188,
+Nike,Air Max 270 Bowfin Black Desert,Black/Phantom-Desert-Cone ,160,165,188,#VALUE!
 Nike, React Element 87 Knicks,Wolf Grey/Black-Thunder Blue ,160,51,213,22
 Nike,LeBron 16 1 Thru 5 (What The),Multi-Color/Multi-Color ,200,1429,317,94
 Nike,Air Presto Off-White Black (2018),Black/White-Cone ,160,5666,743,369
@@ -36,7 +36,7 @@ Nike,React Element 87 Undercover Green Mist,Green Mist/Linen-Summit White ,180,6
 Nike,LeBron 16 Fresh Bred,Black/Black-University Red ,185,387,163,-28
 Nike,SB Dunk High Humidity,Metallic Gold/Metallic Gold-Black ,110,1086,213,71
 Nike,Zoom Fly Undercover Gyakusou Ink,Ink/Sail-Dark Grey-Black ,190,41,216,-5
-Nike,Air Force 1 Low Just Do It Pack White/Black,White/White-Black-Total Orange ,,2157,170,
+Nike,Air Force 1 Low Just Do It Pack White/Black,White/White-Black-Total Orange ,#NUM!,2157,170,#VALUE!
 Nike,Air Max 1/97 Sean Wotherspoon (Extra Lace Set Only),Light Blue Fury/Lemon Wash ,160,8648,570,275
 Nike,Air Foamposite One Denim,Obsidian/Black-University Red ,230,349,183,-9
 Nike,React Element 87 Undercover Volt,Volt/University Red-Black-White ,180,706,328,33
@@ -143,7 +143,7 @@ Adidas,Human Race NMD Pharrell Holi Festival (Core Black),Core Black/Deepest Pur
 Adidas,Ultra Boost 4.0 Running White,Running White/Running White/Running White ,180,3760,145,-33
 Adidas,Human Race NMD Pharrell Holi Festival (Chalk Coral),Chalk Coral/Flash Green-Lab Purple ,250,3688,360,-6
 Adidas,Yeezy Powerphase Calabasas Core White,Core White/Core White/Core White ,120,3535,268,92
-Adidas,Human Race NMD Pharrell Holi Festival (Pink Glow),Pink Glow/Flash Green/Lab Purple ,250,3347,346,
+Adidas,Human Race NMD Pharrell Holi Festival (Pink Glow),Pink Glow/Flash Green/Lab Purple ,250,3347,346,#VALUE!
 Adidas,NMD R1 Japan Triple White,Footwear White/Footwear White/Footwear White ,180,2981,171,-28
 Adidas,Yeezy Boost 350 V2 Black Red,Core Black/Core Black/Red ,220,2876,842,346
 Adidas,Ultra Boost 4.0 Cookies and Cream,Footwear White/Footwear White/Grey Two ,200,2845,232,20
@@ -158,7 +158,7 @@ Adidas,NMD Hu Pharrell Solar Pack Red,White/Black/Red ,250,1995,300,18
 Adidas,Ultra Boost 5th Anniversary Black,Black/Iron ,220,1763,164,-39
 Adidas,Ultra Boost 3.0 Triple White,White/White/White ,180,1760,162,5
 Adidas,NMD R1 Neighborhood Core Black,Core Black/Footwear White/Core Black ,200,1747,299,75
-Adidas,Ultra Boost 1.0 UNDFTD Black,Core Black/Core Black/Footwear White ,,1442,289,
+Adidas,Ultra Boost 1.0 UNDFTD Black,Core Black/Core Black/Footwear White ,#NUM!,1442,289,#VALUE!
 Adidas,Human Race NMD Pharrell Sun Glow,Sun Glow/Core Black/Equipment Yellow ,240,1663,422,2
 Adidas,Ultra Boost 4.0 A Ma Maniere x Invincible Cashmere Wool,Chalk White/Footwear White/Chalk White ,200,1431,238,7
 Adidas,Ultra Boost Lux Sneakersnstuff x Social Status Vintage White,Vintage White/Chalk White/Clear Brown ,200,1410,149,-34
@@ -223,7 +223,7 @@ Adidas,NMD TS1 Gore-Tex Triple Black,Core Black/Core Black/Core Black ,230,290,1
 Adidas,Ultra Boost Clima Core Black Solar Red,Core Black/Core Black/Solar Red ,220,1402,152,-29
 Adidas,NMD R1 STLT Stealth Pack Core Black,Core Black/Grey Two/Grey Five ,140,44,63,-57
 Adidas,NMD R1 Duck Camo Sesame,Sesame/Trace Cargo/Base Green ,130,412,90,-42
-Adidas,Ultra Boost A Kind Of Guise,Core White/Punjab ,,589,242,
+Adidas,Ultra Boost A Kind Of Guise,Core White/Punjab ,#NUM!,589,242,#VALUE!
 Adidas,Solar Hu Glide Black,Footwear White/Core Black/Bold Green ,150,424,220,12
 Adidas,Solar Hu Glide Multi-Color,Multi-Color ,150,580,224,30
 Adidas,Yung-1 Collegiate Navy,Chalk White/Core Black/Collegiate Navy ,130,941,134,-15
@@ -232,7 +232,7 @@ Adidas,NMD R1 Sesame Black,Sesame/Sesame/Off White ,140,147,91,-44
 Adidas,Ultra Boost 4.0 Tech Ink,Tech Ink/Cloud White/Vapor Grey ,180,136,128,-33
 Adidas,Yeezy Boost 350 V2 Beluga,Steeple Gray/Beluga/Solar Red ,220,1526,829,227
 Adidas,Yeezy Boost 350 V2 Core Black White,Core Black/Core White/Core Black ,220,1715,751,209
-Adidas,Falcon White Blue (W),Cloud White/Cloud White/Blue ,100,192,119,
+Adidas,Falcon White Blue (W),Cloud White/Cloud White/Blue ,100,192,119,#VALUE!
 Adidas,EQT Support 93/17 Triple Black,Core Black/Core Black/Core Black ,180,1437,130,-36
 Adidas,Ultra Boost 2.0 White Reflective,White/White ,200,226,218,-1
 Adidas,Ultra Boost 2.0 Multi-Color,White/White/Red ,180,1261,243,15

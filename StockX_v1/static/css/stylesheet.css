@@ -1,0 +1,80 @@
+svg {
+    font: 18px sans-serif;
+    color: whitesmoke
+}
+
+
+.bar {
+    fill: black;
+    border-color: white;
+    clip-path: url(#clip);
+}
+
+.subBar {
+    fill: black;
+    opacity: 0.5;
+}
+
+/* Axis lines */
+.axis path,
+.axis line {
+    fill: teal ;
+    stroke: teal;
+    shape-rendering: crispEdges;
+}
+
+.brush .extent {
+    stroke: red;
+    fill: green;
+    fill-opacity: .25;
+    shape-rendering: crispEdges;
+}
+
+rect.mover {
+    stroke: red;
+    stroke-opacity: .1;
+    fill: lightSteelBlue;
+    fill-opacity: .5;
+}
+
+/* Page Background */
+body{
+    background-color: burlywood;
+}
+
+/* Box displayed when hovering over bar */
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 8px;
+    margin-top: -20px;
+    font: 15px sans-serif;
+    background: turquoise;
+    color: black;
+    font-weight: bolder;
+    pointer-events: none;
+}
+
+/* Drop Down Labels */
+.axes_dropdown {
+    color: black;
+    font-weight: bolder;
+    font-size: 1.5vw;
+}
+
+h1 {
+    color: turquoise;
+    font-weight: bolder;
+    background: black;
+    font-size: 3vw;
+    text-align: center;
+    font-family: "Allerta Stencil", Sans-serif;
+    /* font-family: "Allerta Stencil", Sans-serif;  */
+}
+
+/* Select csv file text */
+#infobox {
+    color:black;
+    font-weight: bold;
+    font-style: italic;
+}

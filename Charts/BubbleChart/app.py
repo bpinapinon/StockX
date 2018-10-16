@@ -14,6 +14,7 @@ bubble = db.sneaker_bubble
 bar = db.Sneaker_bar
 
 
+
 @app.route("/")
 def index():
     """Return the homepage."""
@@ -21,10 +22,12 @@ def index():
 
 @app.route("/bubble")
 def bubble_chart():
-    """Go to bubble chart page"""
-    inventory = list(bubble.find())
-    print(inventory)
-    return render_template("bubble.html", inventory=inventory)
+    """Go to bar chart page"""
+    sneakers = list(bubble.find())
+    print(sneakers)
+    return render_template("bubble.html", sneakers=sneakers)
+
+
 
 @app.route("/bar")
 def bar_chart():

@@ -5,13 +5,13 @@ svg {
 
 
 .bar {
-    fill: black;
-    border-color: white;
+    fill: rgb(231, 74, 134);
+    border-color: rgb(141, 56, 56);
     clip-path: url(#clip);
 }
 
 .subBar {
-    fill: black;
+    fill: rgb(84, 157, 230);
     opacity: 0.5;
 }
 
@@ -38,8 +38,8 @@ rect.mover {
 }
 
 /* Page Background */
-body{
-    background-color: burlywood;
+body {
+    background-image: url("https://66.media.tumblr.com/67d33564e7e9fa5ba04cf305e86be80b/tumblr_ow15r1l4aM1w0fr7to1_1280.png");
 }
 
 /* Box displayed when hovering over bar */
@@ -50,31 +50,31 @@ body{
     margin-top: -20px;
     font: 15px sans-serif;
     background: turquoise;
-    color: black;
+    color: gainsboro;
     font-weight: bolder;
     pointer-events: none;
 }
 
 /* Drop Down Labels */
 .axes_dropdown {
-    color: black;
+    color:rgb(92, 197, 192);
     font-weight: bolder;
     font-size: 1.5vw;
 }
 
 h1 {
-    color: turquoise;
+    color: rgb(48, 240, 214);
     font-weight: bolder;
     background: black;
     font-size: 3vw;
     text-align: center;
-    font-family: "Allerta Stencil", Sans-serif;
+    font-family: "Stencil Std", fantasy;
     /* font-family: "Allerta Stencil", Sans-serif;  */
 }
 
 /* Select csv file text */
 #infobox {
-    color:black;
+    color:rgb(4, 49, 146);
     font-weight: bold;
     font-style: italic;
 }

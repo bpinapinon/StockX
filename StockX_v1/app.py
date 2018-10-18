@@ -12,6 +12,7 @@ from MongoDB_RecursiveCSVParser import MongoDB_RecursiveCSVParser
 # Start MongoDB Server by making OS call "mongod"
 mongod = subprocess.Popen('mongod' , shell = True)
 
+
 @app.route("/")
 def index():
     """Return the homepage."""
@@ -48,7 +49,7 @@ def bubble_chart():
 @app.route("/bubbledata")
 def getbubbledata():
 
-    sneakers = bubble.find()
+    sneakers = db.sneaker_bubble.find()
 
     sneakerList = []
     for sneaker in sneakers:

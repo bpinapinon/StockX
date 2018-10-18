@@ -27,6 +27,15 @@ def bubble_chart():
 
 @app.route("/bubbledata")
 def getbubbledata():
+    # sneakers = list()
+    # index = 1
+    # inventory = bubble.find()
+    # for r in inventory:
+    #     r.pop('_id')
+    #     r['No.'] = str(index);
+    #     index += 1
+    #     sneakers.append(r)
+    # return jsonify({'sneakers': sneakers})
     sneakers = bubble.find()
 
     sneakerList = []
@@ -35,22 +44,16 @@ def getbubbledata():
         sneakerItem = {
             'brand':sneaker['Brand'],
             'color':sneaker['Color'],
-            'retailPrice':sneaker['Retail_Price'],
-            'avgSalePrice':sneaker['Avg_Sale_Price'],
+            'retailPrice':sneaker['Retail_Price ($)'],
+            'avgSalePrice':sneaker['Avg_Sale_Price ($)'],
             'noSales':sneaker['Number_of_Sales']
         }
         sneakerList.append(sneakerItem)
-    return jsonify(sneakerList)
-   
+    return jsonify({'sneakerList': sneakerList})   
 
 
 
-@app.route("/bar")
-def bar_chart():
-    """Go to bar chart page"""
-    inventory = list(bar.find())
-    print(inventory)
-    return render_template("bar.html", inventory=inventory)
+    
 
 
 

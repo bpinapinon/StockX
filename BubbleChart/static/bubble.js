@@ -6,6 +6,8 @@ function buildPlot() {
 
         console.log(response);
 
+        //var sneakers = [response];
+
         var trace = {
             mode: "markers",
             type: "scatter",
@@ -16,7 +18,6 @@ function buildPlot() {
             size: response.map(sneakers => sneakers.noSales),
             color: response.map(sneakers => sneakers.color),
             sizemode:'area'
-
             }
         };
 
@@ -33,8 +34,3 @@ function buildPlot() {
     });
 }
 buildPlot();
-
-
-
-
-

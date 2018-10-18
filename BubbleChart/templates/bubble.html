@@ -54,9 +54,10 @@
 
                 console.log(response)
                               
-                var sneakers = [response];
-                console.log(sneakers)
+                var sneakers = response.sneakerList;
                 
+                console.log(sneakers)
+    
                 var trace = {
                     mode: "markers",
                     type: "scatter",

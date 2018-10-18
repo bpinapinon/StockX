@@ -40,5 +40,28 @@ def chartdata():
         chartData.append(r)
     return jsonify({'chartData': chartData})
 
+@app.route("/bubble")
+def bubble_chart():
+    """Go to bubble chart page"""
+    return render_template("bubble.html")
+
+@app.route("/bubbledata")
+def getbubbledata():
+
+    sneakers = bubble.find()
+
+    sneakerList = []
+    for sneaker in sneakers:
+        print(sneaker)
+        sneakerItem = {
+            'brand':sneaker['Brand'],
+            'color':sneaker['Color'],
+            'retailPrice':sneaker['Retail_Price ($)'],
+            'avgSalePrice':sneaker['Avg_Sale_Price ($)'],
+            'noSales':sneaker['Number_of_Sales']
+        }
+        sneakerList.append(sneakerItem)
+    return jsonify({'sneakerList': sneakerList})   
+
 if __name__ == "__main__":
     app.run(debug=True)

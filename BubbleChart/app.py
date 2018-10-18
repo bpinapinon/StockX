@@ -27,15 +27,7 @@ def bubble_chart():
 
 @app.route("/bubbledata")
 def getbubbledata():
-    # sneakers = list()
-    # index = 1
-    # inventory = bubble.find()
-    # for r in inventory:
-    #     r.pop('_id')
-    #     r['No.'] = str(index);
-    #     index += 1
-    #     sneakers.append(r)
-    # return jsonify({'sneakers': sneakers})
+
     sneakers = bubble.find()
 
     sneakerList = []

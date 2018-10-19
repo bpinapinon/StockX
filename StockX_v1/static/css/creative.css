@@ -33,6 +33,10 @@ a {
 a:hover {
   color: #f05f40;
 }
+strong {
+  color :white;
+  background: rgba(0, 0, 0, 0.5);
+}
 
 h1,
 h2,
@@ -178,7 +182,7 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../img/header.jpg");
+  background-image: url("../img/sneaker_wall.jpg");
   background-position: center center;
   background-size: cover;
 }
@@ -190,6 +194,7 @@ header.masthead hr {
 
 header.masthead h1 {
   font-size: .1rem;
+  color: #509e2f;
 }
 
 header.masthead p {

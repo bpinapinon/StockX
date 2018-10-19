@@ -27,7 +27,7 @@ function buildPlot() {
         var data = [trace];
                 
         var layout = {
-            title: "Bubble Plot",
+            title: "Price Premium and Popularity by Color",
             xaxis: {title: "Retail Price ($)"},
             yaxis: {title: "Average Sale Price ($)"},
             hovermode: "closest"

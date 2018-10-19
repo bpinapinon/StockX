@@ -326,6 +326,10 @@ header.masthead p {
   float: left;
   width: 50%;
 }
+.column, #images {
+  float: left;
+  width: 33.3%;
+}
 
 /* Clear floats after the columns */
 .row:after {

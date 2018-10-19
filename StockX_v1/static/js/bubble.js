@@ -19,7 +19,7 @@ function buildPlot() {
                 size: sneakers.map(sneaker => sneaker.noSales),
                 color: sneakers.map(sneaker => sneaker.color),
                 sizemode:'area',
-                sizeref: 2.* Math.max(...sneakers.map(sneaker => sneaker.noSales))/(40.**2),
+                sizeref: 2.* Math.max(...sneakers.map(sneaker => sneaker.noSales))/(30.**2),
                 sizemin:4
                 }
             };

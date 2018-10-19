@@ -26,6 +26,10 @@ def bar():
 def sankey():
     return render_template("sankey.html")
 
+@app.route("/secret")
+def secret():
+    return render_template("secret.html")
+
 @app.route("/load")
 def mongo_csv_load():
     flag = MongoDB_RecursiveCSVParser.load_csv()

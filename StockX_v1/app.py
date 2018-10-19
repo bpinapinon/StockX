@@ -60,6 +60,7 @@ def getbubbledata():
             'retailPrice':sneaker['Retail_Price ($)'],
             'avgSalePrice':sneaker['Avg_Sale_Price ($)'],
             'noSales':sneaker['Number_of_Sales']
+          
         }
         sneakerList.append(sneakerItem)
     return jsonify({'sneakerList': sneakerList})   

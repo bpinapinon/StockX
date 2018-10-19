@@ -1,74 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bubble Chart</title>
-      <!-- Plotly Dependencies -->
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Resale Landscape</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'> -->
+
+    <!-- Plugin CSS -->
+    <link href="static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/creative.css" rel="stylesheet">
+    <!-- Plotly Dependencies -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
 
-    <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  
+  </head>
 
-   <!-- Custom styles for this template -->
-  <!-- <link href="../css/style.css" rel="stylesheet"> -->
-  
-</head>
-<body id="page-top">
+  <body id="page-top">
 
-       <!-- Navigation -->
-       <body style="background-color: lightgray">
-    
-          <nav class="navbar navbar-default">
-              <div class="container">
-                  <div class="navbar-header">
-                      <a class="navbar-brand logo" href="index.html"> 
-                      <span class="nav-color" style="font-family: 'Times New Roman', Times, serif";>Latitude</span></a>
-                  </div>
-      
-                  <div class="nav navbar-nav navbar-right">
-                      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Plots<span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                              <li><a href="temperature.html">Max Temperature</a></li>
-                              <li><a href="humidity.html">Humidity</a></li>
-                              <li><a href="cloudiness.html">Cloudiness</a></li>
-                              <li><a href="wind_speed.html">Wind Speed</a></li>
-                          </ul>
-                      </li>
-                      <li><a href="comparison.html"> Comparison</a></li>
-                      <li><a href="data.html"> Data</a></li>                                           
-                  </div>
-              </div>      
-          </nav>
-      
-          <div class = "container">
-              <div class="row">
-                  <div class="col-md-12">
-                      <div class="panel panel-default">
-                          <div class="panel-body">
-                          <h2 style="font-family:'Times New Roman', Times, serif;"></h2>
-                          <div class="container text-center">
-                              <h1 class="jumbotron">Bubble Chart</h1>
-                                  <div>
-                                    <div id="bubble"></div>
-                                      <script src="../static/js/bubble.js"></script>
-                                  </div>
-                            </div>      
-                          </div>
-                      </div>
-                  </div>
-    
-                  </div>    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/">Most Hype: Nike vs. Adidas</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead text-center text-white d-flex">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h1 class="text-uppercase">
+              <strong>Visualization of Price Premium and Popularity by Color</strong>
+            </h1>
+            <hr>
           </div>
+          <div class="col-lg-8 mx-auto">
+            <p class="text-faded mb-5">In the midst of the twilight of Air Jordans' and prevalence of Yeezy's, do you which sneaker demands a premium in price and attention? This dashboard showcases key metrics so you can always cop the most hype sneakers and realize greater ROI. From the amateur collector to the sneaker wizards, everyone is certain to find tremendous value here. </p>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Rationale</a>
+          </div>
+        </div>
+      </div>
+    </header>
 
-   
-    
-</body>
+    <section class="bg-primary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 mx-auto text-center">
+              <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <h2 class = "section-heading text-white">Resale is the Product of Demand surpassing Supply </h2>
+                        <hr class="light my-4">
+                        <p class="text-faded mb-4">Insert Analysis </p>
+                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <h2 class = "section-heading text-white">Resale is the Product of Demand surpassing Supply </h2>
+                        <hr class="light my-4">
+                        <p class="text-faded mb-4">Insert Analysis </p>
+                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading">Visualizations At Your Service</h2>
+            <hr class="my-4">
+          </div>
+        </div>
+      </div>             
+       <div id="images">
+         <a href="/bar"><img src="assets/images/Fig2.png" alt="Bar Chart" class="imageNav-photo"></a>
+         <a href="/bubble"><img src="assets/images/Fig3.png" alt="Bubble Chart" class="imageNav-photo"></a>
+         <a href="/sankey"><img src="static/img/portfolio/thumbnails/sankey.png" alt="Sankey" class="imageNav-photo" style="width:50px;height:60px;"></a>
+        </div>
+        </div>
+</section>
+
+    <section class="p-0" id="portfolio">
+        <div class="container text-center">
+            <h1 class="jumbotron">Bubble Chart</h1>
+                <div>
+                  <div id="bubble"></div>
+                    <script src="../static/bubble.js"></script>
+                </div>
+          </div>
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="static/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <!-- <script src="js/creative.min.js"></script> -->
+
+  </body>
+
 </html>

@@ -22,6 +22,10 @@ def index():
 def bar():
     return render_template("bar.html")    
 
+@app.route("/sankey")
+def sankey():
+    return render_template("sankey.html")
+
 @app.route("/load")
 def mongo_csv_load():
     flag = MongoDB_RecursiveCSVParser.load_csv()

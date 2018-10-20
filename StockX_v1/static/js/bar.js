@@ -12,7 +12,7 @@ function buildPlot() {
         var trace = {
             type: "bar",
             x: sneakers.map(sneaker => sneaker.category),
-            y: sneakers.map(sneaker => sneaker.premium), 
+            y: sneakers.map(sneaker => sneaker.price_premium), 
             hovertext: sneakers.map(sneaker => sneaker.brand)
             };
                 

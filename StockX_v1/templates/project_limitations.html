@@ -101,17 +101,44 @@
             <div class="col-lg-12 mx-auto text-center">
                 <div class="row">
                     <div class="column col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <h2 class = "section-heading text-white">Price Premium</h2>
-                          <hr class="light my-4">
-                          <p class="text-faded mb-4">Insert Analysis </p>
-                          <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
-                        </div>
+                        <h2 class = "section-heading text-white">Data Size</h2>
+                        <hr class="my-4"> <!-- light -->
+                        <p class="mb-4"> <!-- text-faded --> 
+                            We only scrubbed for the 50 "Top Seller" and 50 "Most Popular" Nike & Adidas shoes.
+                            Resulting in 200 total records to process.
+                            Issues with Small Datasets include: 
+                            <li id="data-list">Outliers in small sample can significantly alter the analysis.</li>
+                            <li id="data-list">You don't have enough samples to generate "train" and "sample" data.</li>
+                            <li id="data-list">Missing values for a record could have considerable impact on results.</li>
+                        </p>
+                    </div>
                     <div class="column col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <h2 class = "section-heading text-white">Popularity</h2>
-                          <hr class="light my-4">
-                          <p class="text-faded mb-4">Insert Analysis </p>
-                          <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
-                        </div>
+                        <h2 class = "section-heading text-white">Static Data</h2>
+                        <hr class="my-4"> <!-- light -->
+                        <p class="mb-4"> <!-- text-faded --> 
+                            We scrubbed the data on a specific date. The shoes that were sitting at the "top" of the results 
+                            with the criteria we selected so we're working with a static data set. For our analysis to be useful 
+                            by end users long term would require a time-series model. Automating a daily scrubbing or API call 
+                            to StockX to fetch daily data sets would keep our model up-to-date.
+                        </p>
+                    </div>
+                    <div class="column col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2 class = "section-heading text-white">Macroeconomic Variables</h2>
+                            <hr class="my-4"> <!-- light -->
+                            <p class="mb-4"> <!-- text-faded --> 
+                                The state of the economy on the macro level will have an impact on the demand of luxury items.
+                                We've been in a steady bull market, consumers have more disposable income to make these luxury purchases.
+                            </p>
+                    </div>   
+                    <div class="column col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <h2 class = "section-heading text-white">Data Variable Inconsistency</h2>
+                            <hr class="my-4"> <!-- light -->
+                            <p class="mb-4"> <!-- text-faded --> 
+                                One of the critical variables in our analysis was shoe color. The color schemes of shoes were "eclectic" - 
+                                included color schemes like "Gatorade", "Punjab", "Blush", "Volt", "Butter". Normalizing the colors to a 
+                                known color schemes to better partition the data was/is a very manual step that requires human analysis.
+                            </p>
+                    </div>                                       
                 </div>
             </div>
           </div>

@@ -24,6 +24,12 @@ hr.light {
   border-color: #fff;
 }
 
+.hor-custom #hor-custom {
+  max-width: 10px;
+  border-width: 3px;
+  border-color: white;
+}
+
 a {
   color: #F05F40;
   -webkit-transition: all 0.2s;
@@ -67,6 +73,14 @@ p #route-intro {
   align-content: center;
   font-size: 80px;
   background: black;
+}
+
+#data-list {
+  color: #509e2f;
+}
+
+#hor-custom {
+  
 }
 
 h1 #portfolio-header {

@@ -73,5 +73,9 @@ def getbubbledata():
         sneakerList.append(sneakerItem)
     return jsonify({'sneakerList': sneakerList})   
 
+@app.route("/project-limitations")
+def project_limitations():
+    return render_template("project_limitations.html")    
+
 if __name__ == "__main__":
     app.run(debug=True)

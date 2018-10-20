@@ -1,15 +1,15 @@
-﻿ID,Brand,Category, Sum of Number_of_Sales , Retail_Price ($) , Avg_Sale_Price ($) ,Price_Premium,Count of Color
-0, Adidas ,Boost,"35,267",$190 ,$158 ,-25%,35
-1, Adidas ,Dame,"2,425",$150 ,$377 ,149%,2
-2, Adidas ,NMD,"21,640",$172 ,$153 ,-22%,22
-3, Adidas ,Other,"10,256",$153 ,$171 ,-8%,16
-4, Adidas ,Pharrell,"25,288",$230 ,$351 ,15%,13
-5, Adidas ,Yeezy Boost,"145,738",$244 ,$609 ,126%,11
-6, Adidas ,Yeezy Other,"112,547",$180 ,$263 ,39%,7
-7, Nike ,Baller,"8,766",$184 ,$274 ,28%,7
-8, Nike ,Jordan 1,"167,595",$140 ,$227 ,77%,26
-9, Nike ,Jordan X+,"67,339",$198 ,$228 ,11%,20
-10, Nike ,Off-White,"51,061",$182 ,$596 ,285%,13
-11, Nike ,Other,"64,979",$172 ,$245 ,33%,37
-12, Nike ,SB,"2,316",$110 ,$184 ,52%,2
-13, Nike ,Jordan II-IX,"71,973",$194 ,$235 ,23%,18
+﻿ID,Brand,Category,Price_Premium
+0, Adidas ,Boost,-25
+1, Adidas ,Dame,149.00
+2, Adidas ,NMD,-22.00
+3, Adidas ,Other,-8.00
+4, Adidas ,Pharrell,15.00
+5, Adidas ,Yeezy Boost,126.00
+6, Adidas ,Yeezy Other,39.00
+7, Nike ,Baller,28.00
+8, Nike ,Jordan 1,77.00
+9, Nike ,Jordan X+,11.00
+10, Nike ,Off-White,285.00
+11, Nike ,Other,33.00
+12, Nike ,SB,52.00
+13, Nike ,Jordan II-IX,23.00

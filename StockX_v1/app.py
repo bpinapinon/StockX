@@ -39,16 +39,15 @@ def mongo_csv_load():
 
 @app.route("/bardata")
 def getbardata():
-
-    sneakers = db.sneaker_bar.find()
-
+    sneakers = db.cleanedup_sneaker.find()
+    print(sneakers)
     sneakerList = []
     for sneaker in sneakers:
         print(sneaker)
         sneakerItem = {
             'brand':sneaker['Brand'],
             'category':sneaker['Category'],
-            'premium':sneaker['Price_Premium']        
+            'price_premium':sneaker['Price_Premium']        
         }
         sneakerList.append(sneakerItem)
     return jsonify({'sneakerList': sneakerList})

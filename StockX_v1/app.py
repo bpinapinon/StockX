@@ -37,17 +37,21 @@ def mongo_csv_load():
     return ('csv files loaded into MongoDB')
 
 
-@app.route("/chartdata")
-def chartdata():
-    chartData = list()
-    index = 1
-    inventory = db.sneaker_bar.find()
-    for r in inventory:
-        r.pop('_id')
-        r['No.'] = str(index);
-        index += 1
-        chartData.append(r)
-    return jsonify({'chartData': chartData})
+@app.route("/bardata")
+def getbardata():
+
+    sneakers = db.sneaker_bar.find()
+
+    sneakerList = []
+    for sneaker in sneakers:
+        print(sneaker)
+        sneakerItem = {
+            'brand':sneaker['Brand'],
+            'category':sneaker['Category'],
+            'premium':sneaker['Price_Premium']        
+        }
+        sneakerList.append(sneakerItem)
+    return jsonify({'sneakerList': sneakerList})
 
 @app.route("/bubble")
 def bubble_chart():

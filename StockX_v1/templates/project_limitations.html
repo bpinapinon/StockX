@@ -79,7 +79,7 @@
                     decisions must not be overlooked once results are generated. 
                 </strong>
             </p>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Limitations</a>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" id = "button-green" href="#about">Limitations</a>
           </div>
         </div>
       </div>
@@ -103,14 +103,17 @@
                     <div class="column col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <h2 class = "section-heading text-white">Data Size</h2>
                         <hr class="my-4"> <!-- light -->
-                        <p class="mb-4"> <!-- text-faded --> 
+                        <p class="mb-4" id = "lim-font"> <!-- text-faded --> 
                             We only scrubbed for the 50 "Top Seller" and 50 "Most Popular" Nike & Adidas shoes.
-                            Resulting in 200 total records to process.
-                            Issues with Small Datasets include: 
-                            <li id="data-list">Outliers in small sample can significantly alter the analysis.</li>
-                            <li id="data-list">You don't have enough samples to generate "train" and "sample" data.</li>
-                            <li id="data-list">Missing values for a record could have considerable impact on results.</li>
+                            Things to consider with small datasets include: 
+                            <ul>
+                                <li id="data-list">Outliers in small sample can significantly alter the analysis.</li>
+                                <li id="data-list">You don't have enough samples to generate "train" and "sample" data.</li>
+                                <li id="data-list">Missing values for a record could have considerable impact on results.</li>
+                            </ul>
                         </p>
+                        <br>
+                        <br>
                     </div>
                     <div class="column col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <h2 class = "section-heading text-white">Static Data</h2>
@@ -121,6 +124,8 @@
                             by end users long term would require a time-series model. Automating a daily scrubbing or API call 
                             to StockX to fetch daily data sets would keep our model up-to-date.
                         </p>
+                        <br>
+                        <br>
                     </div>
                     <div class="column col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <h2 class = "section-heading text-white">Macroeconomic Variables</h2>
@@ -134,9 +139,8 @@
                             <h2 class = "section-heading text-white">Data Variable Inconsistency</h2>
                             <hr class="my-4"> <!-- light -->
                             <p class="mb-4"> <!-- text-faded --> 
-                                One of the critical variables in our analysis was shoe color. The color schemes of shoes were "eclectic" - 
-                                included color schemes like "Gatorade", "Punjab", "Blush", "Volt", "Butter". Normalizing the colors to a 
-                                known color schemes to better partition the data was/is a very manual step that requires human analysis.
+                                One of the critical variables in our analysis was shoe color. Color schemes included "eclectic" custom-named 
+                                colors. Normalizing this variable to a known color schemes was/is a very manual process that requires human analysis.
                             </p>
                     </div>                                       
                 </div>

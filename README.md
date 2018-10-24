@@ -22,8 +22,7 @@
   * `app` file - our flask application. Contains all the routes of our website. <br>
   	__**This is the only file you have to run to initialize our site**.__
 
-
-### Instructions:
+# Instructions:
 
 1. Initialize MongoDB locally.
 2. Run `StockX > StockX_App > app.py` file.
